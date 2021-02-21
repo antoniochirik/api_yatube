@@ -1,4 +1,3 @@
-#from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from posts.models import Comment, Post
@@ -14,7 +13,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
     author = serializers.ReadOnlyField(source='author.username')
-    #post = serializers.ReadOnlyField(source='post.id')
+    post = serializers.ReadOnlyField(source='post.id')
 
     class Meta:
         model = Comment
